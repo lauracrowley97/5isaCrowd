@@ -14,6 +14,19 @@ import {AppRoutingModule} from "./app-routing.module";
 import { FullpageDirective } from './shared/directives/fullpage.directive';
 
 
+import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "../environments/environment";
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask
+} from "@angular/fire/storage";
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,10 +38,13 @@ import { FullpageDirective } from './shared/directives/fullpage.directive';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
     BrowserAnimationsModule,
     AppRoutingModule //adds the routing module into the program
   ],
-  providers: [ContentService],
+  providers: [ContentService,
+    { provide: AngularFireStorageModule, useValue: "your" }, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

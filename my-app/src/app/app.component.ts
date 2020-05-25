@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { map, finalize } from "rxjs/operators";
+import { Observable } from "rxjs";
+import { ContentService } from "./shared/services/content/content.service";
+import { AngularFireStorage } from "@angular/fire/storage";
 
 @Component({
   selector: 'app-root',
@@ -8,3 +12,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-app';
 }
+

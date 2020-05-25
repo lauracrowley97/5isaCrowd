@@ -10,4 +10,17 @@
   <mat-card-content>
     {{page.content}}
   </mat-card-content>
+
+  <div>
+    <input
+      type="file"
+      id="file"
+      (change)="onFileSelected($event)"
+      name="image"
+      autocomplete="off"
+    />
+  </div>
+
 </mat-card>
+
+
