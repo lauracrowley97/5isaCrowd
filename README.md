@@ -7,5 +7,6 @@ It is necessary to have npm installed
 npm install
 
 # Start Application
-cd webpageApp
+cd my-app 
+
 npm start
