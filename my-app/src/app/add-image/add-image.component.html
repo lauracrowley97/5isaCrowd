@@ -1,0 +1,42 @@
+<mat-card>
+<h1>New Street Art</h1>
+<h2>Add new Street Art to the system</h2>
+<body>
+Please follow the instructions
+
+  <form >
+  <label for="fname">Image Title(*)</label>
+  <input type="text" id="fname" name="fname" required="required"
+         (change)="OnNameChanged($event)"><br><br>
+  <label for="lat">Latitude(º)(*) </label>
+  <input type="number" id="lat" name="latitude" min="-180" max="180"
+         (change)="OnCoordinateChange($event)" [ngModel]="latitude"><br><br>
+
+  <label for="long">Longitude(º)(*)</label>
+  <input type="number" id="Long" name="longitude" min="-180" max="180"
+         (change)="OnCoordinateChange($event)" [ngModel]="longitude"><br><br>
+
+    <input
+        type="file"
+        id="file"
+        (change)="onFileChanged($event)"
+        name="image"
+        autocomplete="off"
+        required="required"
+    /><br><br>
+
+  <input type="submit" value="Submit" (click)="onSubmit()">
+  </form>
+
+<form>
+  <agm-map style="height: 300px;" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapClicked($event)">
+    <agm-marker  [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</form>
+
+</body>
+</mat-card>
+
+
+
+

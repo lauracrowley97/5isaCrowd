@@ -1,0 +1,23 @@
+h1 .light {
+  font-weight: 100;
+}
+
+mat-card {
+  width:500px;
+  background: rgba(255,255,255,0.9);
+}
+
+mat-card-header {
+  color: #3f51b5;
+}
+
+mat-card-content {
+  padding: 8px;
+}
+
+/* Locates the card into the center of the web page */
+:host {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {AgmMap, MouseEvent, MapsAPILoader, AgmCoreModule} from '@agm/core';
 //Imports used to create animations
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
@@ -14,37 +15,38 @@ import {AppRoutingModule} from "./app-routing.module";
 import { FullpageDirective } from './shared/directives/fullpage.directive';
 
 
-import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
-import {
-  AngularFireStorageModule,
-  AngularFireStorageReference,
-  AngularFireUploadTask
-} from "@angular/fire/storage";
-
-
-
-
+import {AngularFireStorageModule} from "@angular/fire/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {AngularFirestore} from "@angular/fire/firestore";
+import { AddImageComponent } from './add-image/add-image.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     InitComponent,
-    FullpageDirective //Our init page is available through all the module
+    FullpageDirective,
+    AddImageComponent //Our init page is available through all the module
   ],
-  imports: [
-    BrowserModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-    BrowserAnimationsModule,
-    AppRoutingModule //adds the routing module into the program
-  ],
+    imports: [
+        BrowserModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatButtonModule,
+        AngularFireStorageModule,
+        AngularFireDatabaseModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        BrowserAnimationsModule,
+        AppRoutingModule, //adds the routing module into the program
+        AgmCoreModule.forRoot({
+            apiKey: "AIzaSyCHPkZEIPLC04uCnTpp6gmoD4BbcvgkR_0"
+        }),
+        FormsModule
+    ],
   providers: [ContentService,
-    { provide: AngularFireStorageModule, useValue: "your" }, ],
+    { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
