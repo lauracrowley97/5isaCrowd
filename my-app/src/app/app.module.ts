@@ -22,13 +22,26 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {AngularFirestore} from "@angular/fire/firestore";
 import { AddImageComponent } from './add-image/add-image.component';
 import {FormsModule} from "@angular/forms";
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import {AuthService} from "./shared/services/auth.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     InitComponent,
     FullpageDirective,
-    AddImageComponent //Our init page is available through all the module
+    AddImageComponent,
+    SigninComponent,
+    SignupComponent,
+    UserProfileComponent,
+    DashboardComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent //Our init page is available through all the module
   ],
     imports: [
         BrowserModule,
@@ -45,7 +58,7 @@ import {FormsModule} from "@angular/forms";
         }),
         FormsModule
     ],
-  providers: [ContentService,
+  providers: [ContentService, AuthService,
     { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore ],
   bootstrap: [AppComponent]
 })
