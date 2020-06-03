@@ -16,11 +16,20 @@ export class ImagesToBeVerifiedService {
       imageName: name,
       longitude: lng,
       latitude: lat,
-      imageUrl: imageUrl
+      imageUrl: imageUrl,
+      Vote1IP: '',
+      Vote1ID: '',
+      Vote2IP: '',
+      Vote2ID: '',
+      Vote3IP: '',
+      Vote3ID: '',
+      Art: '0',
+      Vandalism: '0',
+      Neither: '0'
     })
   }
 
   //TODO: implement the select and update for the images
-  
+
 
 }
