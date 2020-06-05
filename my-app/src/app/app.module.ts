@@ -22,13 +22,17 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {AngularFirestore} from "@angular/fire/firestore";
 import { AddImageComponent } from './add-image/add-image.component';
 import {FormsModule} from "@angular/forms";
+import { VerifyImageComponent } from './verify-image/verify-image.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
     AppComponent,
     InitComponent,
     FullpageDirective,
-    AddImageComponent //Our init page is available through all the module
+    AddImageComponent,
+    VerifyImageComponent //Our init page is available through all the module
   ],
     imports: [
         BrowserModule,
@@ -40,13 +44,14 @@ import {FormsModule} from "@angular/forms";
         AngularFireModule.initializeApp(environment.firebaseConfig),
         BrowserAnimationsModule,
         AppRoutingModule, //adds the routing module into the program
+        HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: "AIzaSyCHPkZEIPLC04uCnTpp6gmoD4BbcvgkR_0"
         }),
         FormsModule
     ],
   providers: [ContentService,
-    { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore ],
+    { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore, CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

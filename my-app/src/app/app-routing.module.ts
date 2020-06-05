@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {InitComponent} from "./init/init.component";
 import {AddImageComponent} from "./add-image/add-image.component";
+import { VerifyImageComponent } from './verify-image/verify-image.component';
 
 const appRoutes: Routes = [
   //basic initial routes
@@ -10,6 +11,7 @@ const appRoutes: Routes = [
   {path: 'home', component: InitComponent, data: {page: 'home'}},
   //path is the name of the page, component where it is located in the code
   {path: 'add_image', component: AddImageComponent, data: {page: 'add_image'}},
+  {path: 'verify_image', component: VerifyImageComponent, data: {page: 'verify_image'}},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
