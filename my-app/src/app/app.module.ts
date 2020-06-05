@@ -40,7 +40,7 @@ import {ChatModule} from "./chat/chat.module";
     InitComponent,
     FullpageDirective,
     AddImageComponent,
-    VerifyImageComponent //Our init page is available through all the module
+    VerifyImageComponent, //Our init page is available through all the module
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
