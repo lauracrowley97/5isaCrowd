@@ -17,4 +17,8 @@ mat-card-content {
   padding: 8px;
 }
 
+iframe{
+  width: 400px;
+  height: 300px;
+}
 

@@ -22,9 +22,19 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {AngularFirestore} from "@angular/fire/firestore";
 import { AddImageComponent } from './add-image/add-image.component';
 import {FormsModule} from "@angular/forms";
+<<<<<<< HEAD
 import { VerifyImageComponent } from './verify-image/verify-image.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+=======
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import {AuthService} from "./shared/services/auth.service";
+>>>>>>> aa7d27c367ee09ce286907740f4acef8f18edcd7
 
 @NgModule({
   declarations: [
@@ -32,7 +42,16 @@ import { CookieService } from 'ngx-cookie-service';
     InitComponent,
     FullpageDirective,
     AddImageComponent,
+<<<<<<< HEAD
     VerifyImageComponent //Our init page is available through all the module
+=======
+    SigninComponent,
+    SignupComponent,
+    UserProfileComponent,
+    DashboardComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent //Our init page is available through all the module
+>>>>>>> aa7d27c367ee09ce286907740f4acef8f18edcd7
   ],
     imports: [
         BrowserModule,
@@ -50,8 +69,13 @@ import { CookieService } from 'ngx-cookie-service';
         }),
         FormsModule
     ],
+<<<<<<< HEAD
   providers: [ContentService,
     { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore, CookieService ],
+=======
+  providers: [ContentService, AuthService,
+    { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore ],
+>>>>>>> aa7d27c367ee09ce286907740f4acef8f18edcd7
   bootstrap: [AppComponent]
 })
 export class AppModule { }
