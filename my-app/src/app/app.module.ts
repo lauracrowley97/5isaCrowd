@@ -29,6 +29,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import {AuthService} from "./shared/services/auth.service";
+import {ChatModule} from "./chat/chat.module";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {AuthService} from "./shared/services/auth.service";
         AgmCoreModule.forRoot({
             apiKey: "AIzaSyCHPkZEIPLC04uCnTpp6gmoD4BbcvgkR_0"
         }),
-        FormsModule
+        FormsModule,
+        ChatModule
     ],
   providers: [ContentService, AuthService,
     { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore ],

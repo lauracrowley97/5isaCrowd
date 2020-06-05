@@ -13,6 +13,10 @@ export const environment = {
     messagingSenderId: "1012777523626",
     appId: "1:1012777523626:web:e461c361bbba3bdd9373d3",
     measurementId: "G-KF2Z135V20"
+  },
+
+  dialogFlow: {
+    StreetsyBot: "5d90fe5b04bd45dda64d44626b042a41"
   }
 };
 
