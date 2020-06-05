@@ -1,0 +1,21 @@
+
+<mat-card>
+    <mat-card-header>
+      <!--<mat-card-title><h1>{{page.title}}</h1></mat-card-title>
+      <mat-card-subtitle>{{page.subtitle}}</mat-card-subtitle>-->
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <p>Please choose if the image is Art, Vandalism, or Neither.</p>
+          <div *ngFor="let image of imagesTBV$ | async">
+            <img [attr.src]="image.imageUrl" >
+          </div>
+        <p>
+          <button id="art" type="button" (click)="OnSubmit('a')">Art</button> &nbsp;&nbsp;
+          <button id="vandalism" type="button" (click)="OnSubmit('v')">Vandalism</button>&nbsp;&nbsp;
+          <button id="neither" type="button" (click)="OnSubmit('n')">Neither</button>
+        </p>
+      </div>
+    </mat-card-content>
+  
+</mat-card>

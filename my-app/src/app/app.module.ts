@@ -22,6 +22,9 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {AngularFirestore} from "@angular/fire/firestore";
 import { AddImageComponent } from './add-image/add-image.component';
 import {FormsModule} from "@angular/forms";
+import { VerifyImageComponent } from './verify-image/verify-image.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -37,6 +40,7 @@ import {ChatModule} from "./chat/chat.module";
     InitComponent,
     FullpageDirective,
     AddImageComponent,
+    VerifyImageComponent //Our init page is available through all the module
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
@@ -54,14 +58,15 @@ import {ChatModule} from "./chat/chat.module";
         AngularFireModule.initializeApp(environment.firebaseConfig),
         BrowserAnimationsModule,
         AppRoutingModule, //adds the routing module into the program
+        HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: "AIzaSyCHPkZEIPLC04uCnTpp6gmoD4BbcvgkR_0"
         }),
         FormsModule,
         ChatModule
     ],
-  providers: [ContentService, AuthService,
-    { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore ],
+  providers: [ContentService,
+    { provide: AngularFireStorageModule, useValue: "your" }, AngularFirestore, CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
