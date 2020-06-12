@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AgmMap, MouseEvent, MapsAPILoader, AgmCoreModule} from '@agm/core';
+import {AgmCoreModule} from '@agm/core';
 //Imports used to create animations
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
@@ -27,12 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import {AuthService} from "./shared/services/auth.service";
 import {ChatModule} from "./chat/chat.module";
+import { ArtTourComponent } from './art-tour/art-tour.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +41,9 @@ import {ChatModule} from "./chat/chat.module";
     VerifyImageComponent, //Our init page is available through all the module
     SigninComponent,
     SignupComponent,
-    UserProfileComponent,
-    DashboardComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent //Our init page is available through all the module
+    VerifyEmailComponent,
+    ArtTourComponent
   ],
     imports: [
         BrowserModule,

@@ -9,7 +9,7 @@ import {SignupComponent} from "./components/signup/signup.component";
 import {ForgotPasswordComponent} from "./components/forgot-password/forgot-password.component";
 import{VerifyEmailComponent} from "./components/verify-email/verify-email.component";
 import {AuthGuard} from "./shared/guard/auth.guard";
-import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {ArtTourComponent} from "./art-tour/art-tour.component";
 
 
 const appRoutes: Routes = [
@@ -17,17 +17,21 @@ const appRoutes: Routes = [
   { path: 'home', component: InitComponent, data: {page: 'home'}, canActivate: [AuthGuard]},
   //path is the name of the page, component where it is located in the code
   {path: 'add_image', component: AddImageComponent, data: {page: 'add_image'}},
-  {path: 'verify_image', component: VerifyImageComponent, data: {page: 'verify_image'}},
-  {path: '**', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'add_image', component: AddImageComponent, data: {page: 'add_image'}, canActivate:[AuthGuard]},
+  {path: 'verify_image', component: VerifyImageComponent, data: {page: 'verify_image'},
+    canActivate:[AuthGuard]},
+
+  { path: 'add_image', component: AddImageComponent, data: {page: 'add_image'},
+    canActivate:[AuthGuard]},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'sign-in', component: SigninComponent },
-  //{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'register-user', component: SignupComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'dashboard', redirectTo: '/home'},
-  { path: 'sign-up', component: SignupComponent}
+  { path: 'sign-up', component: SignupComponent},
+  { path: 'art_tour', component: ArtTourComponent, data: {page: 'art_tour'},
+    canActivate: [AuthGuard]},
+  {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

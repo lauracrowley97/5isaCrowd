@@ -1,0 +1,17 @@
+h1 .light {
+  font-weight: 100;
+}
+
+h1 {
+  margin-top: 2cm;
+}
+
+mat-card {
+  width:700px;
+  background: rgba(255,255,255,0.9);
+  position: center;
+}
+
+mat-card-content {
+  padding: 8px;
+}
