@@ -32,9 +32,23 @@ export class ImagesToBeVerifiedService {
     })
   }
   getImageUrl(){
-    this.imagesTBVRef = this.firestore.collection('images');
+    var imageUrls: string[] = [];
+    firebase.database().ref('imagesToBeVerified').on('value', function(snapshot){
+      var data = snapshot.val();
+      //console.log(typeof data);
+      //console.log(data);
+      for (const key of Object.keys(data)) {
+        const value = data[key]
+        //console.log(typeof value.imageUrl + ` ${value.imageUrl}`);
+        imageUrls.push((<string> value.imageUrl));
+     }
+      //console.log(imageUrls);
+    });
+    return imageUrls;
+    /*
+    this.imagesTBVRef = this.firestore.collection('imagesToBeVerified');
     //this.imagesTBVRef = this.firestore.collection('ImagesToBeVerified');
-    return this.imagesTBVRef.valueChanges();
+    return this.imagesTBVRef.valueChanges();*/
   }
 
   //TODO: implement the select and update for the images

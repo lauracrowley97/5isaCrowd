@@ -7,9 +7,10 @@
     <mat-card-content>
       <div>
         <p>Please choose if the image is Art, Vandalism, or Neither.</p>
-          <div *ngFor="let image of imagesTBV$ | async">
-            <img [attr.src]="image.imageUrl" >
-          </div>
+            <div>
+              <img *ngIf="flag" [attr.src]="urlArr[index]" >
+              <button *ngIf="!flag" id="art" type="button" (click)="OnSubmit('x')">Begin Image Classification</button> &nbsp;&nbsp;
+            </div>
         <p>
           <button id="art" type="button" (click)="OnSubmit('a')">Art</button> &nbsp;&nbsp;
           <button id="vandalism" type="button" (click)="OnSubmit('v')">Vandalism</button>&nbsp;&nbsp;

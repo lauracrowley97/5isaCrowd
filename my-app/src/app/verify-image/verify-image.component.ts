@@ -15,9 +15,18 @@ export class VerifyImageComponent implements OnInit {
   constructor(private fb: ImagesToBeVerifiedService, private http:HttpClient, private cookieService: CookieService) { }
   ipAddress:string;
   private cookieValue: string;
+  private imageArr : Image[];
+  public urlArr: String[];
+  public index: number;
+  public flag: boolean;
   ngOnInit(): void {
-    this.imagesTBV$ = this.fb.getImageUrl();//
-    console.log(this.fb.getImageUrl().subscribe(val => console.log(val)));
+    this.flag = false;
+    this.index = 0;
+    //this.imagesTBV$ = 
+    //this.urlArr = ["https://firebasestorage.googleapis.com/v0/b/fiveisacrowd-a051f.appspot.com/o/ImagesToBeVerified%2F1591267017496?alt=media&token=296dc5dd-4f76-47ca-a60c-d2c3ba4f3b9c"];
+    this.urlArr = this.fb.getImageUrl();//
+    //this.fb.getImageUrl().subscribe(val => console.log(val));//this.imageArr = val);
+    console.log(this.urlArr);
     this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
       this.ipAddress = res.ip;
       console.log(this.ipAddress);
@@ -31,6 +40,10 @@ export class VerifyImageComponent implements OnInit {
   }
   OnSubmit(s): void{
     console.log(s);
+    this.index += Math.floor(Math.random() * Math.floor(49));;
+    if(this.index > 49) {
+      this.index -= 49;
+    }
     //this.imagesTBV$ = this.fb.getImageUrl();
     switch(s) {
       case "a": {
@@ -40,6 +53,10 @@ export class VerifyImageComponent implements OnInit {
         break;
       }
       case "n": {
+        break;
+      }
+      case "x": {
+        this.flag = true;
         break;
       }
       default: {
